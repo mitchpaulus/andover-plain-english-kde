@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<language name="Andover Plain English" version="1" kateversion="2.4" section="Sources" extensions="*.and" author="Mitchell T. Paulus" casesensitive="0" >
+    <highlighting>
+        <list name="keywords1">
+            <item>ACCESSLOG</item>
+            <item>ACCESSSERVER</item>
+            <item>AVAILRECORDS</item>
+            <item>CABINETTAMPER</item>
+            <item>EVENTLOGSIZE</item>
+            <item>READERPOWER</item>
+            <item>SYSTEMSTATUS</item>
+            <item>UNIQUEPIN</item>
+            <item>ACTIVEALARMS</item>
+            <item>UNACKEDALARMS</item>
+            <item>IOUCOMMFLT#</item>
+            <item>STATUS#</item>
+            <item>DATE</item>
+            <item>DAYOF</item>
+            <item>MONTH</item>
+            <item>DAYOFYEAR</item>
+            <item>HOD</item>
+            <item>HOUR</item>
+            <item>MINUTE</item>
+            <item>MONTH</item>
+            <item>POWERFAIL</item>
+            <item>POWERUPTIME</item>
+            <item>SECOND</item>
+            <item>TOD</item>
+            <item>WEEKDAY</item>
+            <item>YEAR</item>
+            <item>MESSAGEWINDOW</item>
+            <item>STATUSLINE</item>
+            <item>FREEMEM</item>
+            <item>LOAD</item>
+            <item>VERSION</item>
+            <item>AUDIOBELL</item>
+            <item>BACKLIGHT</item>
+            <item>TOUCHEDCELL</item>
+        </list>
+        <list name="keywords2">
+            <item>TS</item>
+            <item>TM</item>
+            <item>TH</item>
+            <item>TD</item>
+        </list>
+        <list name="controlflow">
+            <item>MOVE</item>
+            <item>TURN</item>
+            <item>FILE</item>
+            <item>DATETIME</item>
+            <item>DISABLE</item>
+            <item>ENABLE</item>
+            <item>SHOW</item>
+            <item>SHOWREPORT</item>
+            <item>BASEDON</item>
+            <item>BREAK</item>
+            <item>CONTINUE</item>
+            <item>FOR</item>
+            <item>NEXT</item>
+            <item>GOTO</item>
+            <item>IF</item>
+            <item>THEN</item>
+            <item>ELSE</item>
+            <item>LINE</item>
+            <item>REPEAT</item>
+            <item>UNTIL</item>
+            <item>RETURN</item>
+            <item>ROTATE</item>
+            <item>RUN</item>
+            <item>STOP</item>
+            <item>SELECT</item>
+            <item>CASE</item>
+            <item>WHILE</item>
+            <item>LOGOUT</item>
+            <item>ARG</item>
+            <item>CD</item>
+            <item>SHELL</item>
+            <item>OBJECT</item>
+            <item>SET</item>
+            <item>MOVE</item>
+            <item>TURN</item>
+            <item>ON</item>
+            <item>TURN</item>
+            <item>OFF</item>
+            <item>SAVE</item>
+            <item>SCAN</item>
+            <item>ENDIF</item>
+            <item>NUMERIC</item>
+            <item>START</item>
+        </list>
+        <list name="logical">
+            <item>AND</item>
+            <item>BITAND</item>
+            <item>BITNOT</item>
+            <item>BITOR</item>
+            <item>BITXOR</item>
+            <item>IS</item>
+            <item>IS</item>
+            <item>BETWEEN</item>
+            <item>IS</item>
+            <item>GREATER</item>
+            <item>IS</item>
+            <item>LESS</item>
+            <item>NOT</item>
+            <item>OR</item>
+            <item>MINUS</item>
+            <item>MOD</item>
+            <item>PLUS</item>
+            <item>STANDARDDEVIATION</item>
+        </list>
+
+        <list name="constants">
+            <item>EOF</item>
+            <item>FAILURE</item>
+            <item>OFF</item>
+            <item>ON</item>
+            <item>-ON</item>
+            <item>PASSED</item>
+            <item>SUCCESS</item>
+            <item>BLUE</item>
+            <item>FILL</item>
+            <item>NOFILL</item>
+            <item>WHITE</item>
+            <item>THE</item>
+        </list>
+        <contexts>
+            <context attribute="Normal Text" lineEndContext="#pop" name="Normal Text" >
+                <keyword attribute="Keyword" context="#stay" String="keywords2" />
+                <keyword attribute="ControlFlow" context="#stay" String="controlflow" />
+                <keyword attribute="Logical" context="#stay" String="logical" />
+                <keyword attribute="Constants" context="#stay" String="constants" />
+
+                <!--<DetectChar attribute="String" context="string" char="&quot;" />-->
+                <DetectChar char="&apos;" attribute="Comment" context="Comment"/>
+                <RegExpr String="^[a-zA-Z0-9]+:" attribute="Label" context="#stay" />
+                <RegExpr String="\b-?([1-9][0-9]*|0)(\.[0-9]+)?\b" attribute="Numeric" context="#stay" />
+            </context>
+            <!--<context attribute="String" lineEndContext="#stay" name="string" >-->
+                <!--<DetectChar attribute="String" context="#pop" char="&quot;" />-->
+            <!--</context>-->
+            <context name="Comment" attribute="Comment" lineEndContext="#pop">
+            </context>
+        </contexts>
+        <itemDatas>
+            <itemData name="Normal Text" defStyleNum="dsNormal" />
+            <itemData name="Keyword" defStyleNum="dsKeyword" />
+            <itemData name="String" defStyleNum="dsString" />
+            <itemData name="Comment" defStyleNum="dsComment" />
+            <itemData name="ControlFlow" defStyleNum="dsControlFlow" />
+            <itemData name="Label" defStyleNum="dsFunction" />
+            <itemData name="Numeric" defStyleNum="dsFloat" />
+            <itemData name="Logical" defStyleNum="dsOperator" />
+            <itemData name="Constants" defStyleNum="dsConstant" />
+        </itemDatas>
+    </highlighting>
+    <general>
+        <comments>
+            <comment name="singleLine" start="&apos;"/>
+        </comments>
+        <keywords casesensitive="0" />
+    </general>
+</language>
+
+
+
